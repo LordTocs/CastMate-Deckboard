@@ -1,0 +1,23 @@
+{
+  "name": "castmate-deckboard",
+  "version": "0.0.1",
+  "description": "Deckboard plugin for CastMate",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "npm run clean && npm run compile && npm run pack",
+    "clean": "if exist build rmdir /s /q build",
+    "pack": "asar pack . ./build/castmate-deckboard.asar --unpack-dir=\"{build,.git}\" --unpack=*.ts",
+    "test-install": "npm run build && copy .\\build\\castmate-deckboard.asar %userprofile%\\deckboard\\extensions\\castmate-deckboard.asar",
+    "compile": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.26",
+    "@types/node-fetch": "^2.6.11",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "node-fetch": "2.6.1"
+  }
+}
