@@ -3,5 +3,5 @@ package: castmate-deckboard
 version: 0.0.1
 description: Deckboard extension to trigger CastMate remotely
 author: LordTocs
-license: AGPL
+license: MIT
 repository: "https://github.com/LordTocs/CastMate-Deckboard"
