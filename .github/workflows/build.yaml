@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
@@ -16,7 +16,7 @@ jobs:
       - name: "Install Node Packages"
         run: "npm install"
       - name: "Build Asar File"
-        run: "npm run build"
+        run: "npm run github-build"
       - name: get-npm-version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@v1.3.1

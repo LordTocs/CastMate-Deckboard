@@ -8,7 +8,8 @@
     "clean": "if exist build rmdir /s /q build",
     "pack": "asar pack . ./build/castmate-deckboard.asar --unpack-dir=\"{build,.git}\" --unpack=*.ts",
     "test-install": "npm run build && copy .\\build\\castmate-deckboard.asar %userprofile%\\deckboard\\extensions\\castmate-deckboard.asar",
-    "compile": "tsc"
+    "compile": "tsc",
+    "github-build": "npm run compile && npm run pack"
   },
   "author": "",
   "license": "ISC",
