@@ -1,0 +1,39 @@
+name: Build / Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+      - name: "Setup Node"
+        uses: actions/setup-node@v3
+      - name: "Install Node Packages"
+        run: "npm install"
+      - name: "Build Asar File"
+        run: "npm run build"
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+      - name: "Create Release Draft"
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.package-version.outputs.current-version }}
+          release_name: Release v${{ steps.package-version.outputs.current-version }}
+          draft: true
+      - name: "Upload Asar File"
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build/castmate-deckboard.asar
+          asset_name: castmate-deckboard.asar
+          asset_content_type: application/x-asar
