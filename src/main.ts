@@ -55,13 +55,13 @@ class CastMate implements Extension {
         castmateIp: {
             type: "text",
             name: "CastMate IP",
-            descriptions: "IP of the computer CastMate is running on.",
+            descriptions: "The IP of the computer CastMate is running on.",
             value: "127.0.0.1",
         },
         castmatePort: {
             type: "text",
             name: "CastMate Port",
-            descriptions: "Port CastMate is configured to run it's internal server on.",
+            descriptions: "The port CastMate is configured to run it's internal server on.",
             value: "8181",
         }
     }
@@ -81,7 +81,6 @@ class CastMate implements Extension {
     }]
 
     get selections() {
-        console.log("Getting Selections")
         return [
 			{
 				header: this.name
@@ -91,7 +90,7 @@ class CastMate implements Extension {
     }
 
     constructor() {
-        console.log("Constructing CastMate")
+        //console.log("Constructing CastMate")
     }
 
     get castmateIp() : string {
@@ -133,7 +132,7 @@ class CastMate implements Extension {
     }
 
     initExtension() {
-        console.log("Initing CastMate")
+        console.log("Initing CastMate Extension")
     }
 
     execute(action: string, params: any) {
