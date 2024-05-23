@@ -21,20 +21,9 @@ jobs:
         id: package-version
         uses: martinbeentjes/npm-get-version-action@v1.3.1
       - name: "Create Release Draft"
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ steps.package-version.outputs.current-version }}
-          release_name: Release v${{ steps.package-version.outputs.current-version }}
+          files: ./build/castmate-deckboard.asar
           draft: true
-      - name: "Upload Asar File"
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/castmate-deckboard.asar
-          asset_name: castmate-deckboard.asar
-          asset_content_type: application/x-asar
+          tag_name: v${{ steps.package-version.outputs.current-version}}
+          
