@@ -1,6 +1,6 @@
 # CastMate Deckboard Plugin
 
-This plugin allows deckboard activate a CastMate remote trigger. It forms a useful bridge between Deckboard and CastMate. It is only compatible with CastMate 0.5+.
+This plugin allows deckboard activate a CastMate remote trigger. It forms a useful bridge between Deckboard and CastMate. It is only compatible with CastMate 0.5+. See https://www.github.com/LordTocs/CastMate or https://www.castmate.io/
 
 # Developer Info
 
